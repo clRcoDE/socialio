@@ -19,6 +19,8 @@ import {
   FlatList,
   TouchableHighlight
 } from "react-native";
+import MainScroller from "./src/Components/MainScroller";
+
 
 const diviceHeight = Dimensions.get("window").height;
 
@@ -50,10 +52,7 @@ export default class App extends Component {
         </View>
         <View style={styles.bodyWrapper}>
           <View
-            style={[
-              styles.navMenuWrapper,
-              { borderColor: "navy", borderWidth: 3 }
-            ]}
+            style={[styles.navMenuWrapper,]}
           >
             <View style={styles.navSectionOne}>
               <View style={styles.navHeaderWrapper}>
@@ -149,11 +148,14 @@ export default class App extends Component {
             </View>
           </View>
           <View style={styles.eventsMenuWrapper}>
-            <ScrollView style={styles.scrollMenuWrapper} />
+            <ScrollView style={styles.scrollMenuWrapper}>
+            <MainScroller/>
+            
+            </ScrollView>
             <View style={styles.ExploreMenuWrapper}>
               <View style={styles.exploreHeader}>
                 <Text
-                  style={{ fontSize: 14, color: "#222", fontWeight: "600" }}
+                  style={{ fontSize: 18, color: "#444", fontWeight: "600" }}
                 >
                   Explore Events
                 </Text>
@@ -185,29 +187,29 @@ export default class App extends Component {
               </View>
               <View style={styles.explorerNavigate}>
                 <View style={styles.exploreNavigateElement}>
-                <Image source={require('./src/Assets/Images/joy.png')}/>
+                <Image source={require('./src/Assets/Images/joy.png')} style={{marginLeft:10}}/>
 
-                  <Text> Nerd Parties</Text>
+                  <Text style={{fontSize:13,fontWeight:'600',color:'#555',paddingLeft:18}}> Nerd Parties</Text>
                 </View>
                 <View style={styles.exploreNavigateElement}>
-                <Image source={require('./src/Assets/Images/partyshot.png')}/>
+                <Image source={require('./src/Assets/Images/partyshot.png')}  style={{marginLeft:10}}/>
 
-                  <Text> Party</Text>
+                  <Text style={{fontSize:13,fontWeight:'600',color:'#555',paddingLeft:18}}> Party</Text>
                 </View>
                 <View style={styles.exploreNavigateElement}>
-                <Image source={require('./src/Assets/Images/craft.png')}/>
+                <Image source={require('./src/Assets/Images/craft.png')}  style={{marginLeft:10}}/>
 
-                  <Text>Crafts</Text>
+                  <Text style={{fontSize:13,fontWeight:'600',color:'#555',paddingLeft:18}}>Crafts</Text>
                 </View>
                 <View style={styles.exploreNavigateElement}>
-                <Image source={require('./src/Assets/Images/sportball.png')}/>
+                <Image source={require('./src/Assets/Images/sportball.png')}  style={{marginLeft:10}}/>
 
-                  <Text>Sports</Text>
+                  <Text style={{fontSize:13,fontWeight:'600',color:'#555',paddingLeft:18}}>Sports</Text>
                 </View>
                 <View style={styles.exploreNavigateElement}>
-                <Image source={require('./src/Assets/Images/musicplayer.png')}/>
+                <Image source={require('./src/Assets/Images/musicplayer.png')}  style={{marginLeft:10}}/>
 
-                  <Text>Dance</Text>
+                  <Text style={{fontSize:13,fontWeight:'600',color:'#555',paddingLeft:18}}>Dance</Text>
                 </View>
                 <TouchableHighlight
                   onPress={() => {}}
@@ -226,28 +228,33 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F5FCFF"
+    // backgroundColor: "#000"
   },
   headerWrapper: {
-    borderColor: "royalblue",
-    borderWidth: 2,
-    flexDirection: "row"
-    // paddingLeft:18,
-    // paddingVertical:17
-  },
-  navHeaderWrapper: {
-    borderColor: "royalblue",
+    // borderColor: "royalblue",
+    // backgroundColor:'royalblue',
     // borderWidth: 2,
     flexDirection: "row",
+    // paddingLeft:18,
+    // paddingVertical:17,
+    borderBottomWidth: 1,
+    borderBottomColor:'#ccc',
+    // backgroundColor:'red'
+  },
+  navHeaderWrapper: {
+    borderColor: "red",
+    // borderWidth:4,
+    flexDirection: "row",
     paddingLeft: 18,
-    paddingVertical: 17
+    paddingVertical: 1,
+    // backgroundColor:"red"
   },
   bodyWrapper: {
-    // backgroundColor: "lightblue",
+    backgroundColor: "#ddd",
     flex: 1,
     flexDirection: "row",
     borderColor: "lime",
-    borderWidth: 2
+    // borderWidth: 4
   },
   logoWrapper: {
     // backgroundColor: "green",
@@ -257,7 +264,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRightColor: "#ddd",
     borderRightWidth: 1,
-    marginVertical: 10
+    marginVertical: 4
   },
   inputWrapper: {
     // backgroundColor: "purple",
@@ -268,56 +275,66 @@ const styles = StyleSheet.create({
   },
   eventsMenuWrapper: {
     flex: 4,
-    backgroundColor: "purple",
+    backgroundColor: "rgba( 245,245,240,1.0)",
     flexDirection: "row",
     justifyContent: "space-between"
   },
   scrollMenuWrapper: {
-    width: 425,
-    backgroundColor: "#aaa",
+    width:370,
+    backgroundColor: "#fff",
     marginLeft: 32,
     marginRight: 18,
-    marginTop: 32
+    marginTop: 25
     // marginBottom:32,
   },
   ExploreMenuWrapper: {
-    flex: 4,
-    backgroundColor: "#999",
+    flex: 3,
+    backgroundColor: "#fff",
     marginLeft: 18,
     marginRight: 32,
-    marginTop: 32
+    marginTop:25,
+    borderColor:'#777',
+    // borderWidth:2,
     // marginBottom:32,
   },
   exploreHeader: {
     justifyContent: "center",
-    paddingVertical: 20,
-    paddingHorizontal: 15
+    paddingVertical: 16,
+    paddingHorizontal: 15,
+    borderColor:'#ddd',
+    borderWidth:1
   },
   exploreBigUiButtons: {
-    flex: 1,
-    
-    backgroundColor: "gold",
+    minHeight:280,
+    flexWrap: "wrap",
+    // backgroundColor: "gold",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    borderColor:'#ddd',
+    borderWidth:1
   },
   exploreBigUiButtonsWrapper:{
 
     flexWrap: "wrap",
-    borderColor:'red',
-    borderWidth:2,
+    // borderColor:'red',
+    // borderWidth:2,
     flex:1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical:6,
-    // paddingHorizontal:2
+    // paddingVertical:6,
+    maxHeight: 600,
+    marginHorizontal:6
   },
   BigUiButton: {
-    width: 170,
-    height:120,
-    borderWidth: 2,
+    minWidth:160,
+    maxWidth:250,
+    minHeight:115,
+    // height:125,
+    maxHeight:200,
+    // borderWidth: 2,
     marginHorizontal:6,
-    marginVertical:7,
-    borderRadius:4,
+    marginVertical:5,
+    borderRadius:6,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -325,30 +342,36 @@ const styles = StyleSheet.create({
 
     color:'#eee',
     fontWeight: '600',
-    fontSize:16,
-    // marginTop:15
+    fontSize:18,
+    paddingTop:10
   },
   exploreNavigateElement: {
     // justifyContent: "center",
-    paddingVertical: 18,
+    paddingVertical:14,
     flexDirection: 'row',
+    paddingHorizontal:10,
+    borderColor:'#eee',
+    borderWidth:1
   },
   touchMoreEvents: {
     justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 18
+    paddingVertical: 18,
+    borderColor:'#eee',
+    borderWidth:1
   },
 
   navMenuWrapper: {
-    flex: 1
-    // backgroundColor: "gold",
+    flex:1.25,
+    paddingTop:34,
+    backgroundColor: "#fff",
     // marginRight:100
     // paddingLeft:30
   },
   navSectionOne: {
     // borderWidth:3,
     borderColor: "purple",
-    height: 325
+    height: 285
   },
   navSectionTwo: {
     // borderWidth:3,
@@ -382,7 +405,7 @@ const styles = StyleSheet.create({
     borderColor: "red",
     flexDirection: "row",
 
-    paddingVertical: 8,
+    paddingVertical: 10,
     paddingLeft: 18
   },
   sectionTwoElementText: {
@@ -403,7 +426,8 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontWeight: "600",
-    fontSize: 16,
-    color: "#999"
+    fontSize: 14,
+    color: "#999",
+    marginBottom:10
   }
 });
