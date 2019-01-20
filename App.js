@@ -17,10 +17,11 @@ import {
   Dimensions,
   ScrollView,
   FlatList,
-  TouchableHighlight
+  TouchableHighlight,
 } from "react-native";
 import MainScroller from "./src/Components/MainScroller";
 
+const deviceWidth = Dimensions.get('window').width
 
 const diviceHeight = Dimensions.get("window").height;
 
@@ -152,6 +153,7 @@ export default class App extends Component {
             <MainScroller/>
             
             </ScrollView>
+            <ScrollView>
             <View style={styles.ExploreMenuWrapper}>
               <View style={styles.exploreHeader}>
                 <Text
@@ -219,6 +221,7 @@ export default class App extends Component {
                 </TouchableHighlight>
               </View>
             </View>
+            </ScrollView>
           </View>
         </View>
       </View>
@@ -280,7 +283,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   scrollMenuWrapper: {
-    width:370,
+    // minWidth:275,
+    // flex:8,
+    width: (deviceWidth*(40/100)),
     backgroundColor: "#fff",
     marginLeft: 32,
     marginRight: 18,
@@ -305,31 +310,35 @@ const styles = StyleSheet.create({
     borderWidth:1
   },
   exploreBigUiButtons: {
-    minHeight:280,
+    // minHeight:280,
+    flex:1,
+    width:(deviceWidth*(27/100)),
     flexWrap: "wrap",
     // backgroundColor: "gold",
     justifyContent: "center",
     alignItems: "center",
-    borderColor:'#ddd',
-    borderWidth:1
+    borderColor:'#eee',
+    borderWidth:1,
+    // marginLeft:12
   },
   exploreBigUiButtonsWrapper:{
 
     flexWrap: "wrap",
-    // borderColor:'red',
+    borderColor:'red',
+    
     // borderWidth:2,
     flex:1,
     justifyContent: 'center',
     alignItems: 'center',
     // paddingVertical:6,
-    maxHeight: 600,
-    marginHorizontal:6
+    maxHeight: 300,
+    // marginHorizontal:6
   },
   BigUiButton: {
-    minWidth:160,
-    maxWidth:250,
-    minHeight:115,
-    // height:125,
+    minWidth:((deviceWidth*(25/100))*(42/100)),
+    flex:1,
+    minHeight:110,
+    // // height:125,
     maxHeight:200,
     // borderWidth: 2,
     marginHorizontal:6,
@@ -362,7 +371,8 @@ const styles = StyleSheet.create({
   },
 
   navMenuWrapper: {
-    flex:1.25,
+    // flex:1.25,
+    width: (deviceWidth*(25/100)),
     paddingTop:34,
     backgroundColor: "#fff",
     // marginRight:100

@@ -174,7 +174,7 @@ export default class MainScroller extends Component {
              {/* {console.warn(item.picture.large)}
              {console.warn( `from state :${this.state.flatlistPhotos}`)} */}
 <View style={{justifyContent: 'center',borderColor:'#eee',borderWidth:2,borderRadius:10,alignItems: 'center',padding:15,marginHorizontal:15}}>
-             <Image source={{uri:item.picture.large}} style={{width:600,height:300,borderRadius:10}}/>
+             <Image source={{uri:item.picture.large}} style={{width:300,height:150,borderRadius:10}}/>
              </View>
         {/* {item.picture.large.map(item => {return(
             // console.warn(item)
